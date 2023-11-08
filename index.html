@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="home.css">
+    <title>IKC | Learning Portal</title>
+</head>
+<body>
+    <div class="parent">
+       
+        <div class="content">
+            <progress id="progressBar" max="1" value="0"></progress>
+            <h3>Frontend Web Development using HTML , CSS - IKC</h3>
+            <div id="progressContainer">
+                <div id="progressCircle"></div>
+                
+                <div id="progressLabel">0%</div>
+                
+            </div>
+            
+            <video id="videoPlayer" controls controlsList="nodownload" contextmenu="off">
+                
+            </video>
+           
+        </div>
+
+        <div class="one">
+            <h3>Explore The Content</h3>
+            <ol type="1">
+                <li><a href="#" data-video="video.mp4">Introduction</a></li>
+                <li><a href="#" data-video="main.mp4">HTML Intro</a></li>
+                <li><a href="#" data-video="secon.mp4">CSS Intro</a></li>
+                <li><a href="#" data-video="third.mp4">Introduction</a></li>
+                <li><a href="#" data-video="video1.mp4">HTML Intro</a></li>
+                <li><a href="#" data-video="secon.mp4">CSS Intro</a></li>
+                <li><a href="#" data-video="video.mp4">Introduction</a></li>
+                <li><a href="#" data-video="main.mp4">HTML Intro</a></li>
+                <li><a href="#" data-video="secon.mp4">CSS Intro</a></li>
+                <li><a href="#" data-video="video.mp4">Introduction</a></li>
+                <li><a href="#" data-video="main.mp4">HTML Intro</a></li>
+                <li><a href="#" data-video="secon.mp4">CSS Intro</a></li>
+                <li><a href="#" data-video="third.mp4">Introduction</a></li>
+                <li><a href="#" data-video="video1.mp4">HTML Intro</a></li>
+                <li><a href="#" data-video="secon.mp4">CSS Intro</a></li>
+                <li><a href="#" data-video="video.mp4">Introduction</a></li>
+                <li><a href="#" data-video="main.mp4">HTML Intro</a></li>
+                <li><a href="#" data-video="secon.mp4">CSS Intro</a></li>
+                <li><a href="#" data-video="video.mp4">Introduction</a></li>
+                <li><a href="#" data-video="main.mp4">HTML Intro</a></li>
+                <li><a href="#" data-video="secon.mp4">CSS Intro</a></li>
+                <li><a href="#" data-video="third.mp4">Introduction</a></li>
+                <li><a href="#" data-video="video1.mp4">HTML Intro</a></li>
+                <li><a href="#" data-video="secon.mp4">CSS Intro</a></li>
+                <li><a href="#" data-video="video.mp4">Introduction</a></li>
+                <li><a href="#" data-video="main.mp4">HTML Intro</a></li>
+                <li><a href="#" data-video="secon.mp4">CSS Intro</a></li>
+                <li><a href="#" data-video="video.mp4">Introduction</a></li>
+                <li><a href="#" data-video="main.mp4">HTML Intro</a></li>
+                <li><a href="#" data-video="secon.mp4">CSS Intro</a></li>
+                <li><a href="#" data-video="third.mp4">Introduction</a></li>
+                <li><a href="#" data-video="video1.mp4">HTML Intro</a></li>
+                <li><a href="#" data-video="secon.mp4">CSS Intro</a></li>
+                <li><a href="#" data-video="video.mp4">Introduction</a></li>
+                <li><a href="#" data-video="main.mp4">HTML Intro</a></li>
+                <li><a href="#" data-video="secon.mp4">CSS Intro</a></li>
+                <!-- Add more links with appropriate data-video attributes -->
+            </ol>
+        </div>
+
+
+
+
+    </div>
+
+    <script>
+        // JavaScript code to handle video playback and circular progress
+        const videoPlayer = document.getElementById('videoPlayer');
+        const progressBar = document.getElementById('progressBar');
+        const progressCircle = document.getElementById('progressCircle');
+        const progressLabel = document.getElementById('progressLabel');
+        const links = document.querySelectorAll('.one a');
+
+        links.forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const videoSource = this.getAttribute('data-video');
+                videoPlayer.src = videoSource;
+                videoPlayer.load();
+                videoPlayer.play();
+
+                // Update progress bar as the video plays
+                videoPlayer.addEventListener('timeupdate', () => {
+                    const progress = (videoPlayer.currentTime / videoPlayer.duration) * 100;
+                    progressBar.value = videoPlayer.currentTime / videoPlayer.duration;
+                    progressCircle.style.background = `conic-gradient(deeppink ${progress}%, dodgerblue 0%)`;
+                    progressLabel.textContent = progress.toFixed(2) + "%";
+                });
+            });
+        });
+    </script>
+</body>
+</html>
