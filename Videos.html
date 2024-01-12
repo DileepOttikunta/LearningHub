@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Accordion with YouTube Video</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #CADCFC;
+        }
+
+        .accordion {
+            width: 100%;
+            max-width: 400px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid #ddd;
+        }
+
+        .accordion-item:last-child {
+            border-bottom: none;
+        }
+
+        .accordion-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .accordion-header:hover {
+            background-color: #f9f9f9;
+        }
+
+        .accordion-header h2 {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .accordion-content {
+            display: none;
+            padding: 15px;
+            background-color: #f9f9f9;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        p{
+            text-align: center;
+            background-color: navy;
+            color: white;
+            width: 100vw;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="accordion">
+    <p>FroentEnd Web Dev</p>
+    <div class="accordion-item">
+        <div class="accordion-header">
+            <h2>Day 01 - Frontend Web info</h2>
+            <span>▼</span>
+        </div>
+        <div class="accordion-content">
+            <div class="video-container">
+                <!-- Replace 'VIDEO_ID' with your YouTube video ID -->
+                <iframe width="640" height="360" src="https://www.youtube.com/embed/rc61YHl1PFY?controls=1" title="Devara Part-1 | Glimpse - Telugu - NTR | Koratala Siva | Anirudh | 5 April 2024" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+    <!-- Add more accordion items as needed -->
+    <div class="accordion-header">
+        <h2>Day 01 - Frontend Web info</h2>
+        <span>▼</span>
+    </div>
+    <div class="accordion-content">
+        <div class="video-container">
+            <!-- Replace 'VIDEO_ID' with your YouTube video ID -->
+            <iframe width="640" height="360" src="https://www.youtube.com/embed/rc61YHl1PFY?controls=1" title="Devara Part-1 | Glimpse - Telugu - NTR | Koratala Siva | Anirudh | 5 April 2024" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+    </div>
+</div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', function () {
+                const accordionItem = this.parentElement;
+                const accordionContent = accordionItem.querySelector('.accordion-content');
+
+                if (accordionContent.style.display === 'block') {
+                    accordionContent.style.display = 'none';
+                    header.querySelector('span').innerText = '▼';
+                } else {
+                    accordionContent.style.display = 'block';
+                    header.querySelector('span').innerText = '▲';
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
